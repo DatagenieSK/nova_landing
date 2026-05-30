@@ -17,13 +17,20 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
-  <div class="loader-wrapper" id="loader">
-    <div class="loader-core">
-      <div class="shooting-star"></div>
-      <div class="loader-text-container">
-        <span class="loader-text-nova">NOVA</span>
-        <span class="loader-text-ops">OPS</span>
-      </div>
+ <div class="loader-wrapper" id="loader">
+    <div class="cyber-rings">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+    </div>
+    
+    <div class="loader-text-container">
+      <span class="loader-text-nova">NOVA</span>
+      <span class="loader-text-ops">SYSTEMS ONLINE</span>
+    </div>
+
+    <div class="loading-bar-container">
+      <div class="loading-bar"></div>
     </div>
   </div>
 
@@ -38,11 +45,12 @@
       
       <div class="d-none d-md-flex align-items-center">
         <div class="nav-links">
-          <a href="#about">Expertise</a>
-          <a href="#technology">Technology</a>
-          <a href="#gallery">Gallery</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#features">Features</a>
+          <a href="/live">Live Dashboard</a>
+          <a href="/admin-login">Admin Login</a>
         </div>
-        <a href="#contact" class="nav-btn">Let's Talk</a>
+        <a href="/" class="nav-btn">Register Now</a>
       </div>
 
       <button class="mobile-menu-btn d-md-none" id="mobile-menu-btn" aria-label="Toggle Menu">
@@ -53,10 +61,11 @@
 
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-nav-links">
-      <a href="#about" class="mobile-link">Expertise</a>
-      <a href="#technology" class="mobile-link">Technology</a>
-      <a href="#gallery" class="mobile-link">Gallery</a>
-      <a href="#contact" class="nav-btn mt-4 mobile-link">Let's Talk</a>
+      <a href="#how-it-works" class="mobile-link">How It Works</a>
+      <a href="#features" class="mobile-link">Features</a>
+      <a href="/live" class="mobile-link">Live Dashboard</a>
+      <a href="/admin-login" class="mobile-link">Admin Login</a>
+      <a href="/" class="nav-btn mt-4 mobile-link text-white text-decoration-none" style="background: var(--brand);">Register Now</a>
     </div>
   </div>
 
@@ -64,15 +73,15 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-7 reveal">
-          <span class="section-tag">Enterprise Event Intelligence</span>
+          <span class="section-tag">Enterprise Event MIS</span>
           <h1 class="hero-h1">The Future of<br>
             <span class="typewriter-text" id="typewriter"></span><span class="cursor-blink">|</span>
           </h1>
           <p class="hero-p">
-            Experience seamless entry, real-time analytics, and military-grade security. 
-            We engineer perfection for your most critical summits and retreats.
+            Experience seamless QR entry, real-time analytics, and dynamic activity tracking. 
+            We engineer the software behind your most critical summits.
           </p>
-          <a href="#contact" class="btn-hero">Start Planning</a>
+          <a href="/" class="btn-hero">Generate Your Badge</a>
         </div>
         <div class="col-lg-5 d-none d-lg-block">
           <div class="card-scene">
@@ -94,57 +103,86 @@
     </div>
   </section>
 
-  <section class="about-section" id="about">
+  <section class="how-it-works" id="how-it-works">
+    <div class="container text-center">
+      <span class="section-tag mb-3 reveal">The Attendee Journey</span>
+      <h2 class="about-title mb-5 reveal">From Registration to Entry in Seconds</h2>
+      
+      <div class="row position-relative g-4 mt-2">
+        <div class="d-none d-md-block journey-line"></div>
+
+        <div class="col-md-4 reveal journey-step">
+          <div class="journey-number">1</div>
+          <h4 class="journey-title">Register & Upload</h4>
+          <p class="journey-desc">Attendees fill out the secure form and upload a selfie. Our system automatically compresses and formats the image.</p>
+        </div>
+        
+        <div class="col-md-4 reveal journey-step" style="transition-delay: 0.2s;">
+          <div class="journey-number">2</div>
+          <h4 class="journey-title">Get Digital Badge</h4>
+          <p class="journey-desc">A personalized PDF ID card with a cryptographically secure QR code is instantly generated for download.</p>
+        </div>
+        
+        <div class="col-md-4 reveal journey-step" style="transition-delay: 0.4s;">
+          <div class="journey-number">3</div>
+          <h4 class="journey-title">Scan & Enter</h4>
+          <p class="journey-desc">Present the QR code at the gate. Our lightning-fast scanners verify identity and sync with the live dashboard instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="features">
     <div class="container">
       <div class="about-header reveal">
-        <span class="section-tag">Our Expertise</span>
-        <h2 class="about-title">Flawless Execution, Every Time.</h2>
+        <span class="section-tag">System Capabilities</span>
+        <h2 class="about-title">Flawless Data, Every Time.</h2>
         <p class="about-desc">
-          At Nova Ops, we specialize in the end-to-end management of high-profile events. From the moment your VIPs step off the plane to the final closing remarks, our team handles every operational layer with absolute precision.
+          Nova Ops is a complete end-to-end Management Information System. From bulk attendee uploads to dynamic meal tracking, our software handles every operational layer with absolute precision.
         </p>
       </div>
 
       <div class="row g-4">
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">🏢</div>
-            <h3 class="service-title">Corporate Events</h3>
-            <p class="service-text">We architect large-scale corporate summits, international conferences, and exclusive executive retreats from blueprint to reality.</p>
+            <div class="service-icon">📷</div>
+            <h3 class="service-title">Auto PDF Badges</h3>
+            <p class="service-text">Users upload a photo and our system automatically crops it, formats it, and generates a personalized, downloadable PDF ID card with a secure QR code.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">💻</div>
-            <h3 class="service-title">Total Tech Support</h3>
-            <p class="service-text">Flawless AV setups, stable live streaming, custom networking infrastructure, and rapid on-site IT resolution.</p>
+            <div class="service-icon">🎫</div>
+            <h3 class="service-title">Dynamic Tracking</h3>
+            <p class="service-text">Go beyond the front gate. Scan QR codes for specific activities like Lunch, Dinner, or Workshops with customizable daily or event-long limits.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">🤝</div>
-            <h3 class="service-title">Elite Manpower</h3>
-            <p class="service-text">Expert sourcing, deployment, and dynamic management of highly trained event staff, directors, and professional ushers.</p>
+            <div class="service-icon">⭐</div>
+            <h3 class="service-title">VIP Highlights</h3>
+            <p class="service-text">Mark speakers and special guests in the admin panel. The second they scan in, their profile instantly appears on the public live dashboard.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">🥂</div>
-            <h3 class="service-title">Premium Catering</h3>
-            <p class="service-text">Seamless food and beverage logistics, orchestrating everything from VIP plated dinners to massive multi-station buffets.</p>
+            <div class="service-icon">📊</div>
+            <h3 class="service-title">Live Public Board</h3>
+            <p class="service-text">A beautiful, auto-refreshing public dashboard displaying aggregated attendance stats, demographic charts, and event resources without compromising privacy.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">✈️</div>
-            <h3 class="service-title">Guest Logistics</h3>
-            <p class="service-text">White-glove hospitality. We manage luxury airport transfers, streamlined hotel check-ins, and secure venue transport.</p>
+            <div class="service-icon">📥</div>
+            <h3 class="service-title">Bulk CSV Import</h3>
+            <p class="service-text">Register hundreds of attendees in seconds. Admins can upload a simple CSV file to instantly generate profiles and access tokens for entire corporate teams.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 reveal">
           <div class="service-box 3d-card">
-            <div class="service-icon">🛡️</div>
-            <h3 class="service-title">Total Security</h3>
-            <p class="service-text">Implementing stringent access control, comprehensive screening, and robust crowd management protocols for absolute safety.</p>
+            <div class="service-icon">🎛️</div>
+            <h3 class="service-title">Command Center</h3>
+            <p class="service-text">A secure admin panel providing real-time data filtering, one-click CSV exports, photo verification thumbnails, and complete system control.</p>
           </div>
         </div>
       </div>
@@ -155,30 +193,30 @@
     <div class="container">
       <div class="about-header reveal">
         <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">Proprietary Tech</span>
-        <h2 class="about-title">Powered by Intelligence</h2>
-        <p class="about-desc">Our physical operations are backed by state-of-the-art software, ensuring you have total visibility and control over your event data.</p>
+        <h2 class="about-title">Powered by Python & Flask</h2>
+        <p class="about-desc">Our digital operations are backed by state-of-the-art software, ensuring you have total visibility and secure control over your event data.</p>
       </div>
 
       <div class="row g-4">
         <div class="col-md-4 reveal">
           <div class="glass-card 3d-card">
             <div class="glass-icon">⚡</div>
-            <h3 class="glass-title">Rapid Entry Systems</h3>
-            <p class="glass-desc">Sub-second QR and NFC scanning technology ensures zero wait times and fluid crowd dynamics at all major checkpoints.</p>
+            <h3 class="glass-title">Smart Scanning</h3>
+            <p class="glass-desc">Our web-based HTML5-QR scanner turns any mobile device into a gate checkpoint, offering audio beeps, haptic feedback, and instant database sync.</p>
           </div>
         </div>
         <div class="col-md-4 reveal">
           <div class="glass-card 3d-card">
-            <div class="glass-icon">🔍</div>
-            <h3 class="glass-title">Secure Identity</h3>
-            <p class="glass-desc">Encrypted digital tokens and biometric photo verification instantly eliminate fraud, ticket passing, and unauthorized access.</p>
+            <div class="glass-icon">🔐</div>
+            <h3 class="glass-title">Secure Tokens</h3>
+            <p class="glass-desc">Every attendee is issued a cryptographically secure 16-byte URL token, eliminating ticket fraud, duplication, and unauthorized access.</p>
           </div>
         </div>
         <div class="col-md-4 reveal">
           <div class="glass-card 3d-card">
-            <div class="glass-icon">📊</div>
-            <h3 class="glass-title">Live Analytics</h3>
-            <p class="glass-desc">Track real-time attendance, monitor F&B consumption rates, and optimize resources on the fly via your command dashboard.</p>
+            <div class="glass-icon">🕒</div>
+            <h3 class="glass-title">Local Time Sync</h3>
+            <p class="glass-desc">All check-ins, check-outs, and daily activity resets are precisely synced to local timezones (IST), ensuring perfect operational accuracy.</p>
           </div>
         </div>
       </div>
@@ -188,80 +226,118 @@
   <section class="gallery" id="gallery">
     <div class="container">
       <div class="about-header reveal">
-        <span class="section-tag">Our Work in Action</span>
-        <h2 class="about-title">Events Powered by Nova Ops</h2>
-        <p class="about-desc">Take a look at our expert teams managing operations, registration, and logistics on the ground at some of the biggest expos and conferences.</p>
+        <span class="section-tag">Software in Action</span>
+        <h2 class="about-title">Built for Scale.</h2>
+        <p class="about-desc">Take a look at the Nova Ops platform and our expert teams managing operations on the ground at major summits and conferences.</p>
       </div>
       <div class="gallery-grid">
+        
         <div class="gallery-item reveal">
-          <img src="assets/1.jpeg" alt="Bengal International Jewellery Show">
-          <div class="gallery-overlay"><div class="gallery-overlay-text">Bengal Int. Jewellery Show</div></div>
+          <img src="assets/ui-dashboard.jpg" onerror="this.src='assets/5.jpeg'" alt="Live MIS Dashboard">
+          <div class="gallery-overlay"><div class="gallery-overlay-text">Live MIS Dashboard</div></div>
         </div>
+        
         <div class="gallery-item reveal">
           <img src="assets/2.jpeg" alt="APICON 2025 Kolkata Team">
           <div class="gallery-overlay"><div class="gallery-overlay-text">APICON 2025 Kolkata</div></div>
         </div>
+        
         <div class="gallery-item reveal">
-          <img src="assets/3.jpeg" alt="Event Logistics and Cloak Room">
-          <div class="gallery-overlay"><div class="gallery-overlay-text">Logistics & Cloak Room</div></div>
+          <img src="assets/ui-admin.jpg" onerror="this.src='assets/6.jpeg'" alt="Admin Command Center">
+          <div class="gallery-overlay"><div class="gallery-overlay-text">Admin Command Center</div></div>
         </div>
+        
         <div class="gallery-item reveal">
           <img src="assets/4.jpeg" alt="Kolkata Fabric Expo Team">
           <div class="gallery-overlay"><div class="gallery-overlay-text">Kolkata Fabric Expo</div></div>
         </div>
+        
         <div class="gallery-item reveal">
-          <img src="assets/5.jpeg" alt="Gifts World Expo Registration Desk">
-          <div class="gallery-overlay"><div class="gallery-overlay-text">Rapid Registration Tech</div></div>
+          <img src="assets/ui-scanner.jpg" onerror="this.src='assets/1.jpeg'" alt="Mobile QR Scanner">
+          <div class="gallery-overlay"><div class="gallery-overlay-text">Mobile QR Scanner</div></div>
         </div>
+        
         <div class="gallery-item reveal">
-          <img src="assets/6.jpeg" alt="APICON 2025 Operations Team">
-          <div class="gallery-overlay"><div class="gallery-overlay-text">Conference Operations</div></div>
+          <img src="assets/3.jpeg" alt="Event Logistics">
+          <div class="gallery-overlay"><div class="gallery-overlay-text">On-Ground Logistics</div></div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="faq-section">
+    <div class="container" style="max-width: 800px;">
+      <div class="text-center mb-5 reveal">
+        <span class="section-tag">Support</span>
+        <h2 class="about-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion reveal" id="novaFaq">
+        
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Do I need to print my ID badge?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#novaFaq">
+            <div class="accordion-body">
+              No, printing is not required. You can simply display the downloaded PDF or a screenshot of your QR code on your smartphone screen at the entry gates.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Is my profile data secure?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#novaFaq">
+            <div class="accordion-body">
+              Absolutely. Our system uses localized, encrypted databases. Your QR code is a secure 16-byte cryptographically generated token that contains no raw personal data, meaning your identity is safe even if someone screenshots your badge.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              What if I lose my QR code?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#novaFaq">
+            <div class="accordion-body">
+              Don't worry! Visit the Help Desk at the venue. Our staff can instantly look up your name or mobile number in the Nova Ops Command Center and re-issue your badge.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-custom">
     <div class="container">
-      <div class="row g-4 align-items-stretch">
-        <div class="col-lg-7 reveal">
-          <div class="contact-card">
-            <span class="section-tag">Reach Out</span>
-            <h3 style="font-family:'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 700; color:var(--text-main); margin-bottom:30px;">Let's Discuss Your Event</h3>
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="contact-input" placeholder="Your Name">
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="contact-input" placeholder="Corporate Email">
-                </div>
-              </div>
-              <input type="text" class="contact-input" placeholder="Event Type & Estimated Guests">
-              <textarea class="contact-input" rows="5" placeholder="Tell us about your operational needs..."></textarea>
-              <button type="button" class="btn-send">Send Inquiry</button>
-            </form>
-          </div>
+      <div class="row text-center text-md-start align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="novaops-removebg-preview.png" style="height: 45px; opacity: 0.8; margin-bottom: 20px;">
+            <p style="color: #888; font-size: 14px; max-width: 320px; margin: 0 auto 0 0;">From Vision To Execution. The premier event operations software engineered for excellence.</p>
         </div>
-
-        <div class="col-lg-5 reveal">
-          <div class="call-box">
-            <div class="call-icon">📞</div>
-            <h3 style="font-family:'Cormorant Garamond', serif; font-size:2.8rem; font-weight:700; margin-bottom:15px; position:relative; z-index:2;">Need Immediate Support?</h3>
-            <p style="opacity:0.9; font-size: 1.1rem; margin-bottom:30px; position:relative; z-index:2; max-width: 80%;">Our command center is available 24/7 for urgent operational inquiries.</p>
-            <a href="tel:1234567891" class="btn-call" style="position:relative; z-index:2;">+91 123 456 7891</a>
-          </div>
+        <div class="col-md-6 text-md-end">
+            <h5 style="color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 15px;">Need Support?</h5>
+            <p style="color: #888; font-size: 14px; margin-bottom: 5px;">Registration Issues: <a href="mailto:support@novaops.com" style="color: var(--brand-light); text-decoration: none;">support@novaops.com</a></p>
+            <p style="color: #888; font-size: 14px;">Command Center: +91 98765 43210</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <footer class="text-center">
-    <div class="container d-flex flex-column align-items-center">
-      <p style="margin-top: 20px;">© 2026 Nova Ops Systems. Engineered for Excellence.</p>
+      <div class="text-center mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="color: #555; font-size: 13px; margin: 0;">© 2026 Nova Ops Event Systems. All Rights Reserved. Tech powered by DigiAffair.</p>
+      </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

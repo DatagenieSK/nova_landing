@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // --- 4. DYNAMIC TYPEWRITER EFFECT ---
 document.addEventListener("DOMContentLoaded", () => {
   const textElement = document.getElementById("typewriter");
-  const words = ["Event Operations.", "VIP Logistics.", "Secure Entry.", "Live Analytics."];
+  // UPDATED WORDS FOR THE NEW MIS SOFTWARE
+  const words = ["Activity Tracking.", "VIP Logistics.", "Secure QR Entry.", "Live MIS Analytics."];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -107,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animateCursor();
 
     // Hover effect on clickable items
-    const clickables = document.querySelectorAll('a, button, .gallery-item, .3d-card');
+    const clickables = document.querySelectorAll('a, button, .gallery-item, .3d-card, .accordion-button');
     clickables.forEach(el => {
       el.addEventListener('mouseenter', () => outline.classList.add('hover-active'));
       el.addEventListener('mouseleave', () => outline.classList.remove('hover-active'));
