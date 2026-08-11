@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>404 - Event Not Started | Nova Ops</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Core Fonts & Bootstrap -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* --- SPECIFIC 404 STYLES --- */
+    .error-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #050102; /* Matches the loader background */
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    
+    /* Ambient Pulse Effect */
+    .error-section::before {
+      content: '';
+      position: absolute;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(166,26,59,0.12) 0%, transparent 60%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    }
+
+    /* Glassmorphism Card Container */
+    .error-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 60px 40px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      max-width: 650px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .error-code {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 10px;
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(166,26,59,0.4);
+      letter-spacing: -5px;
+    }
+
+    .error-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .error-desc {
+      font-family: 'Montserrat', sans-serif;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    /* Override btn-hero to look good on dark background */
+    .btn-hero-dark {
+      border: 1px solid var(--brand-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reusing your custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Background Scanner Beam for extra cyber feel -->
+  <div class="scanner-beam"></div>
+
+  <main>
+    <section class="error-section">
+      <div class="container d-flex justify-content-center">
+        <!-- Reusing the 3d-card class from script.js for hover physics -->
+        <div class="error-content 3d-card">
+          <h1 class="error-code">404</h1>
+          <h2 class="error-title">Let's Get The Event Started!</h2>
+          <p class="error-desc">
+            It looks like you've wandered off the official run sheet. The page you are looking for doesn't exist, or the session hasn't started yet.
+          </p>
+          <a href="/" class="btn-hero btn-hero-dark">Return to Basecamp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Script for 3D card physics and cursor -->
+  <script src="script.js" defer></script>
+</body>
+</html>
