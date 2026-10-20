@@ -22,12 +22,13 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; font-family: var(--sans); color: var(--text-main); background: var(--bg-color); overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3 { font-family: var(--serif); margin: 0; line-height: 1.15; }
 p { margin: 0; }
 a { color: inherit; }
+a, button, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 ul { margin: 0; padding: 0; list-style: none; }
 button { font: inherit; }
 
@@ -139,7 +140,7 @@ button { font: inherit; }
 
 /* ---------- scene: badge being scanned ---------- */
 .scene { position: relative; display: grid; place-items: center; min-height: 520px; perspective: 1100px; }
-.scene-glow { position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(166,26,59,.22), transparent 68%); filter: blur(10px); }
+.scene-glow { position: absolute; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(166,26,59,.22), transparent 68%); }
 .badge-float { position: relative; animation: float 6s ease-in-out infinite; }
 .badge { position: relative; width: clamp(250px, 78vw, 296px); padding: 34px 26px 26px; text-align: center; background: #fff; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,.09), 0 0 0 1px rgba(123,15,47,.06);
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .25s ease-out; }
@@ -524,4 +525,20 @@ button { font: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .loader { animation: loader-failsafe .01s linear 7s forwards !important; }
+}
+
+/* ========================================= */
+/* MOBILE PERFORMANCE                         */
+/* ========================================= */
+@media (max-width: 991px) {
+  /* backdrop blur is one of the costliest effects on phone GPUs while scrolling */
+  .nav { background: rgba(253,253,253,.97); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .mobile-menu { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .lightbox::backdrop { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(10,2,4,.88); }
+  .card { box-shadow: 0 6px 18px rgba(0,0,0,.03); }
+  .card:hover { transform: none; }
+  .scene-glow { width: 300px; height: 300px; }
+}
+@media (hover: none) {
+  .btn-primary:hover, .btn-gold:hover { transform: none; }
 }

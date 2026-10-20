@@ -24,19 +24,24 @@
   /* 1. Nav: shadow, scroll progress, scrollspy        */
   /* ------------------------------------------------ */
   const nav = $('#nav'), progress = $('#progress');
-  let ticking = false;
+  let ticking = false, max = 0, scrolled = false;
+  // measure page height only when layout can change, not on every scroll frame (avoids forced reflow)
+  const measure = () => { max = document.documentElement.scrollHeight - window.innerHeight; };
   function onScroll() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.setProperty('--p', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
-      nav.classList.toggle('scrolled', window.scrollY > 12);
+      const y = window.scrollY;
+      progress.style.setProperty('--p', max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+      const s = y > 12;
+      if (s !== scrolled) { scrolled = s; nav.classList.toggle('scrolled', s); }
       ticking = false;
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+  window.addEventListener('load', () => { measure(); onScroll(); });
+  measure(); onScroll();
 
   const spyLinks = $$('.nav-links a[href^="#"]');
   const spy = new IntersectionObserver(entries => {
@@ -346,7 +351,7 @@
     if (loader) loader.remove();
     setReady();
   } else {
-    const MIN = reduce ? 400 : 1600;     // shortest time the loader stays up
+    const MIN = reduce ? 400 : 1100;     // shortest time the loader stays up
     const MAX = 5000;                    // never wait longer than this
     const t0 = performance.now();
     const status = $('#loaderStatus');

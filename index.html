@@ -114,14 +114,15 @@
   }
   </script>
 
-  <!-- Preloader plays once per browser session; repeat visits skip straight to the page -->
-  <script>try { if (sessionStorage.getItem('novaLoaded')) document.documentElement.classList.add('no-loader'); } catch (e) {}</script>
+  <!-- Preloader: desktop only, once per session. Phones/tablets skip it so content paints immediately -->
+  <script>try { if (sessionStorage.getItem('novaLoaded') || matchMedia('(max-width: 991px), (prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-loader'); } catch (e) {}</script>
   <noscript><style>.loader { display: none !important; }</style></noscript>
 
-  <link rel="preload" as="image" href="novaops-removebg-preview.png">
+  <link rel="preload" as="image" href="novaops-logo.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -149,7 +150,7 @@
   <nav class="nav" id="nav" aria-label="Main">
     <div class="container nav-inner">
       <a class="nav-logo" href="https://novaops.in/">
-        <img src="novaops-removebg-preview.png" alt="Nova Ops Official Logo" width="160" height="55" class="nav-logo-img" fetchpriority="high" decoding="async">
+        <img src="novaops-logo.webp" alt="Nova Ops Official Logo" width="360" height="197" class="nav-logo-img" fetchpriority="high" decoding="async">
       </a>
 
       <div class="nav-desktop">
@@ -218,8 +219,8 @@
           <div class="badge-float" aria-hidden="true">
             <div class="badge" id="heroBadge">
               <span class="slot"></span>
-              <div class="b-logo"><img src="novaops-removebg-preview.png" alt="" width="130" height="45"></div>
-              <div class="b-photo"><img src="assets/idcasd.jpg" alt="" width="140" height="140"></div>
+              <div class="b-logo"><img src="novaops-logo.webp" alt="" width="360" height="197" decoding="async"></div>
+              <div class="b-photo"><img src="assets/idcasd.jpg" alt="" width="140" height="140" decoding="async"></div>
               <div class="b-name">Sarah Jenkins</div>
               <div class="b-role">
                 <span>Keynote Speaker</span>
@@ -473,37 +474,37 @@
         <div class="gallery-grid">
           <figure class="g g1 reveal">
             <button type="button" class="g-btn" aria-label="Enlarge: Live MIS Dashboard">
-              <img src="assets/ui-dashboard.jpg" onerror="this.onerror=null;this.src='assets/5.jpeg'" alt="Nova Ops Live MIS Dashboard interface showing real-time event analytics" width="400" height="320" loading="lazy">
+              <img src="assets/ui-dashboard.jpg" onerror="this.onerror=null;this.src='assets/5.jpeg'" alt="Nova Ops Live MIS Dashboard interface showing real-time event analytics" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>Live MIS Dashboard</figcaption>
           </figure>
           <figure class="g g2 reveal" style="--d:80ms">
             <button type="button" class="g-btn" aria-label="Enlarge: APICON 2025 Kolkata">
-              <img src="assets/2.jpeg" alt="Nova Ops team managing event entry at APICON 2025 in Kolkata" width="400" height="320" loading="lazy">
+              <img src="assets/2.jpeg" alt="Nova Ops team managing event entry at APICON 2025 in Kolkata" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>APICON 2025 Kolkata</figcaption>
           </figure>
           <figure class="g g3 reveal">
             <button type="button" class="g-btn" aria-label="Enlarge: Admin Command Center">
-              <img src="assets/ui-admin.jpg" onerror="this.onerror=null;this.src='assets/6.jpeg'" alt="Event operations admin command center for attendee tracking" width="400" height="320" loading="lazy">
+              <img src="assets/ui-admin.jpg" onerror="this.onerror=null;this.src='assets/6.jpeg'" alt="Event operations admin command center for attendee tracking" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>Admin Command Center</figcaption>
           </figure>
           <figure class="g g4 reveal" style="--d:80ms">
             <button type="button" class="g-btn" aria-label="Enlarge: Kolkata Fabric Expo">
-              <img src="assets/4.jpeg" alt="Event logistics and QR ticketing at the Kolkata Fabric Expo" width="400" height="320" loading="lazy">
+              <img src="assets/4.jpeg" alt="Event logistics and QR ticketing at the Kolkata Fabric Expo" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>Kolkata Fabric Expo</figcaption>
           </figure>
           <figure class="g g5 reveal">
             <button type="button" class="g-btn" aria-label="Enlarge: Mobile QR Scanner">
-              <img src="assets/ui-scanner.jpg" onerror="this.onerror=null;this.src='assets/1.jpeg'" alt="Mobile QR Scanner app used for fast event check-ins" width="400" height="320" loading="lazy">
+              <img src="assets/ui-scanner.jpg" onerror="this.onerror=null;this.src='assets/1.jpeg'" alt="Mobile QR Scanner app used for fast event check-ins" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>Mobile QR Scanner</figcaption>
           </figure>
           <figure class="g g6 reveal" style="--d:80ms">
             <button type="button" class="g-btn" aria-label="Enlarge: On-Ground Logistics">
-              <img src="assets/3.jpeg" alt="Event logistics and ground operations management" width="400" height="320" loading="lazy">
+              <img src="assets/3.jpeg" alt="Event logistics and ground operations management" width="400" height="320" loading="lazy" decoding="async">
             </button>
             <figcaption>On-Ground Logistics</figcaption>
           </figure>
@@ -575,7 +576,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="novaops-removebg-preview.png" alt="Nova Ops Logo" width="130" height="45" class="footer-logo" loading="lazy">
+          <img src="novaops-logo.webp" alt="Nova Ops Logo" width="360" height="197" class="footer-logo" loading="lazy" decoding="async">
           <p class="footer-tag">From Vision To Execution. The premier event operations software engineered for excellence.</p>
         </div>
         <div class="footer-support">
