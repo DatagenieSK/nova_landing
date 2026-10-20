@@ -98,7 +98,7 @@
   /* 4. Typewriter                                     */
   /* ------------------------------------------------ */
   const tw = $('#typewriter');
-  const words = ['Activity Tracking.', 'VIP Logistics.', 'Secure QR Entry.', 'Live MIS Analytics.'];
+  const words = ['Activity Tracking.', 'VIP Logistics.', 'Travel & Hotel Desk.', 'Secure QR Entry.', 'Live MIS Analytics.'];
   if (tw) {
     if (reduce) {
       tw.textContent = words[0];

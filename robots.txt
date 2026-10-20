@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin-login
+Disallow: /404.html
+
+Sitemap: https://novaops.in/sitemap.xml
