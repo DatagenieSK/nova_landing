@@ -393,4 +393,90 @@
     setTimeout(tryFinish, MIN);
     setTimeout(finish, MAX);
   }
+
+  /* ------------------------------------------------ */
+  /* 11. Live Server Health Check & 404 Fallback       */
+  /* ------------------------------------------------ */
+  let serverOnlineStatus = null;
+
+  async function checkServerHealth(targetUrl, timeoutMs = 2000) {
+    try {
+      const origin = new URL(targetUrl, window.location.href).origin;
+
+      // 1. Fetch check to /health endpoint with ngrok bypass header
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(`${origin}/health`, {
+          method: 'GET',
+          signal: controller.signal,
+          headers: { 'ngrok-skip-browser-warning': 'true' }
+        });
+        clearTimeout(timer);
+        if (res.ok) return true;
+      } catch (_) {
+        clearTimeout(timer);
+      }
+
+      // 2. Image probe on static asset (works cross-origin without CORS)
+      return await new Promise(resolve => {
+        const img = new Image();
+        const imgTimer = setTimeout(() => {
+          img.src = '';
+          resolve(false);
+        }, timeoutMs);
+
+        img.onload = () => {
+          clearTimeout(imgTimer);
+          resolve(true);
+        };
+        img.onerror = () => {
+          clearTimeout(imgTimer);
+          resolve(false);
+        };
+        img.src = `${origin}/static/digi_affair_logo.png?_t=${Date.now()}`;
+      });
+    } catch (_) {
+      return false;
+    }
+  }
+
+  const liveLinks = $$('a[data-live-check="true"]');
+
+  // Background check once the page is ready so clicks are fast
+  onReady(() => {
+    const probeTarget = liveLinks.find(a => a.href && a.href.startsWith('http'));
+    if (probeTarget) {
+      checkServerHealth(probeTarget.href, 2500).then(online => {
+        serverOnlineStatus = online;
+      });
+    }
+  });
+
+  liveLinks.forEach(link => {
+    link.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const targetUrl = link.href;
+
+      link.style.opacity = '0.6';
+      link.style.pointerEvents = 'none';
+
+      let isOnline = serverOnlineStatus;
+      // If unverified or previously recorded as false, verify with live ping
+      if (isOnline === null || isOnline === false) {
+        isOnline = await checkServerHealth(targetUrl, 2000);
+        serverOnlineStatus = isOnline;
+      }
+
+      link.style.opacity = '';
+      link.style.pointerEvents = '';
+
+      if (isOnline) {
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        // ngrok or backend is not running -> hit 404 page
+        window.location.href = '404.html';
+      }
+    });
+  });
 })();
