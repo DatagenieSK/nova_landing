@@ -64,7 +64,14 @@
     document.body.style.overflow = open ? 'hidden' : '';
   }
   menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('active')));
-  $$('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  $$('.mobile-link').forEach(a => a.addEventListener('click', () => {
+    const href = a.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      setMenu(false);
+    } else {
+      setTimeout(() => setMenu(false), 150);
+    }
+  }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('active')) { setMenu(false); menuBtn.focus(); } });
   window.matchMedia('(min-width: 992px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
